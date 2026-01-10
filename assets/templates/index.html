@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <header class="masthead d-flex align-items-center">
+        <div class="container px-4 px-lg-5 text-center">
+            <h1 class="mb-1"><em class="text-white">Acute Lymphoblastic Lukemia Detection</em></h1>
+            <h3 class="mb-5"><em class="text-white">A Review on Data Mining and Deep Learning
+                Methods for Acute Lymphoblastic Lukemia Detection</em></h3>
+            <a class="btn btn-primary btn-xl" href="#about">Find Out More</a>
+        </div>
+    </header>
+
+    <!-- Portfolio-->
+    <section class="content-section" id="portfolio">
+        <div class="container px-4 px-lg-5">
+            <div class="content-section-heading text-center">
+                <h3 class="text-secondary mb-0">Portfolio</h3>
+                <h2 class="mb-5"><span class="text-white">Our Projects </span></h2>
+            </div>
+            <div class="row gx-0">
+                <div class="col-lg-6">
+                    <a class="portfolio-item" href="#!">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <div class="h2">Data Science</div>
+                                <p class="mb-0">Data science is the field of applying advanced analytics techniques and
+                                    scientific principles to extract valuable information from data for business
+                                    decision-making
+                                </p>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'img/bgimage.png' %}" alt="..."/>
+                    </a>
+                </div>
+                <div class="col-lg-6">
+                    <a class="portfolio-item" href="#!">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <div class="h2">Deep Learning</div>
+                                <p class="mb-0">
+                                    Deep learning is a method of data analysis that automates analytical model
+                                    building.
+                                </p>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'img/bgimage.png' %}" alt="..."/>
+                    </a>
+                </div>
+                <div class="col-lg-6">
+                    <a class="portfolio-item" href="#!">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <div class="h2">Artificial Intelligence</div>
+                                <p class="mb-0">
+                                    Artificial intelligence is the simulation of human intelligence processes by
+                                    machines, especially computer systems. Specific applications of AI include expert
+                                    systems, natural language processing, speech recognition and machine vision.
+                                </p>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'img/bgimage.png' %}" alt="..."/>
+                    </a>
+                </div>
+                <div class="col-lg-6">
+                    <a class="portfolio-item" href="#!">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <div class="h2">Neural Network</div>
+                                <p class="mb-0">A neural network is a series of algorithms that endeavors to recognize
+                                    underlying relationships in a set of data through a process that mimics the way the
+                                    human brain operates. In this sense, neural networks refer to systems of neurons,
+                                    either organic or artificial in nature.</p>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'img/bgimage.png' %}" alt="..."/>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

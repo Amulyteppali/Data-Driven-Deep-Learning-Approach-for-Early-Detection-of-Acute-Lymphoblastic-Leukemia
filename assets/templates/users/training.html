@@ -1,0 +1,124 @@
+{% extends 'users/userbase.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training Results</title>
+    <style>
+        .results-container {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .accuracy-box {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .accuracy-value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #28a745;
+        }
+        .accuracy-plot {
+            max-width: 100%;
+            margin-top: 20px;
+        }
+        .table {
+            width: 100%;
+            margin-top: 10px;
+        }
+        .table th, .table td {
+            padding: 8px;
+            text-align: center;
+            border: 1px solid #dee2e6;
+        }
+        .table th {
+            background-color: #343a40;
+            color: white;
+        }
+        .start-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .start-btn:hover {
+            background-color: #0056b3;
+            color: white;
+        }
+        .warning-text {
+            color: #856404;
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="results-container">
+        <h1>Training Results</h1>
+        
+        {% if show_start_button %}
+        <div class="accuracy-box">
+            <p class="warning-text">
+                <strong>Note:</strong> Training will take several minutes to complete. 
+                Please wait until the process finishes.
+            </p>
+            <p>{{ message }}</p>
+            <a href="?start=true" class="start-btn">Start Training</a>
+        </div>
+        {% elif model_exists %}
+        <div class="accuracy-box" style="background: #d4edda; border: 1px solid #28a745;">
+            <h3 style="color: #155724;">✅ Model Status</h3>
+            <p style="font-size: 1.2em; color: #155724;">{{ message }}</p>
+            <p>The trained model file <strong>Acute_Lymphoblastic_Lukemia_Model.h5</strong> is available.</p>
+            <p>You can now use the <strong>Prediction</strong> feature to classify leukemia cell images.</p>
+        </div>
+        {% if show_retrain_button %}
+        <div class="accuracy-box">
+            <p class="warning-text">
+                <strong>Note:</strong> Retraining will overwrite the existing model and take several minutes.
+            </p>
+            <a href="?start=true" class="start-btn">Retrain Model</a>
+        </div>
+        {% endif %}
+        {% elif accuracy %}
+        <div class="accuracy-box">
+            <h3>Final Training Accuracy</h3>
+            <p class="accuracy-value">{{ accuracy }}%</p>
+        </div>
+        
+        <div class="accuracy-box">
+            <h3>Final Validation Accuracy</h3>
+            <p class="accuracy-value">{{ val_accuracy }}%</p>
+        </div>
+        
+        <div class="accuracy-box">
+            <h3>Accuracy Plot</h3>
+            <img src="/media/accuracy_plot.png" alt="Accuracy Plot" class="accuracy-plot">
+        </div>
+        
+        <div class="accuracy-box">
+            <a href="?start=true" class="start-btn">Retrain Model</a>
+        </div>
+        {% else %}
+        <div class="accuracy-box">
+            <p>No training results available yet.</p>
+            <a href="?start=true" class="start-btn">Start Training</a>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
+{% endblock %}

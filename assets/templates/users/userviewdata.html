@@ -1,0 +1,35 @@
+{% extends 'users/userbase.html'%}
+{% load static %}
+
+{% block content %}
+<style style="width: 100%">
+
+table{
+    font-family: arial, sans-serif;
+    border-collapse:collapse;
+    width:100%;
+}
+tr{
+    border : 2px solid blue;
+}
+td,th {
+      border: 2px solid green;
+      text-align: center;
+      padding: 6px;
+      text-decoration-color: blue;
+}
+tr:nth-child(even) {
+      background-color: #D6EEEE;
+      border:2px;
+}
+body {
+    background-color: white;
+}
+</style>
+<section id ="intro">
+        <div class="intro-text">
+                <p><h3 align="center" style="color:teal"> View Data.....</h3></p><b>
+          {{data|safe}}
+        </div>
+</section>
+{% endblock %}

@@ -1,0 +1,15 @@
+{
+    "accuracy": 98.27,
+    "val_accuracy": 96.01,
+    "test_accuracy": 95.7,
+    "loss": 0.0596,
+    "val_loss": 0.1143,
+    "test_loss": 0.1166,
+    "epochs": 15,
+    "trained_on": "2026-01-05 19:48:41",
+    "model_type": "QCResNet (Quality-enhanced Convolutional ResNet)",
+    "total_params": 11363140,
+    "training_samples": 4558,
+    "validation_samples": 977,
+    "test_samples": 977
+}
